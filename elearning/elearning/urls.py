@@ -19,6 +19,6 @@ from courses.views import course_detail, course_list
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^course_detail/(?P<course_id>\d)/$', course_detail),
-    url(r'^$', course_list)
+    url(r'^course_detail/(?P<course_id>\d)/$', course_detail, name='course_detail'),
+    url(r'^$', course_list),
 ]

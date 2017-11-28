@@ -1,8 +1,8 @@
 from django import forms
-from courses.models import Course
+from .models import Course
 
 
 class CourseForm(forms.ModelForm):
     class Meta:
         model = Course
-        name = ['name']
+        fields = ['name', ]

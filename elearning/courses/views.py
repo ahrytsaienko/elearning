@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from courses.models import Course
-from courses.form import CourseForm
 from django.http import HttpResponseRedirect
+from .forms import CourseForm
 
 
 # Create your views here.
@@ -22,10 +22,8 @@ def course_add(request):
     if request.POST:
         form = CourseForm(request.POST)
         if form.is_valid():
-            form.save()
-            return HttpResponseRedirect()
+            new_form = form.save()
+            return HttpResponseRedirect(new_form.get_absolute_url())
     else:
         form = CourseForm()
-    return render(request, 'course/course_form.html', {
-        'form': form,
-    })
+    return render(request, 'courses/course_form.html', {'form': form, })
