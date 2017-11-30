@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from courses.models import Course
+from .models import Course
 from django.http import HttpResponseRedirect
 from .forms import CourseForm
 
